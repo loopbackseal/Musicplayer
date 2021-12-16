@@ -15,9 +15,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRq-7w-k8x">
+                                <rect key="frame" x="107" y="94" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="TvL-0Q-g0d"/>
+                                    <constraint firstAttribute="height" constant="200" id="rCB-GH-c1S"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="button_play">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                </state>
+                                <state key="selected" image="button_pause"/>
+                                <buttonConfiguration key="configuration" style="plain" image="button_play" title="Button">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exM-jb-aXy"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a3z-0t-QMd">
+                                <rect key="frame" x="14" y="355" width="386" height="17"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="VFJ-Xg-o5Q"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="UFH-12-xvk"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8W-WP-ndI">
+                                <rect key="frame" x="171.5" y="314" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d8W-WP-ndI" firstAttribute="top" secondItem="iRq-7w-k8x" secondAttribute="bottom" constant="20" id="30X-hF-08S"/>
+                            <constraint firstItem="iRq-7w-k8x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="33l-vV-c0I"/>
+                            <constraint firstItem="a3z-0t-QMd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7le-wH-NiO"/>
+                            <constraint firstItem="a3z-0t-QMd" firstAttribute="top" secondItem="d8W-WP-ndI" secondAttribute="bottom" constant="20" id="BRQ-UG-gEb"/>
+                            <constraint firstItem="a3z-0t-QMd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CbN-m4-179"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a3z-0t-QMd" secondAttribute="trailing" constant="16" id="DhW-Vv-im9"/>
+                            <constraint firstItem="a3z-0t-QMd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UJ5-o3-2M5"/>
+                            <constraint firstItem="a3z-0t-QMd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kpO-Tz-gso"/>
+                            <constraint firstItem="iRq-7w-k8x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rdO-wY-n5O"/>
+                            <constraint firstItem="d8W-WP-ndI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vQ8-FW-tPP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="iRq-7w-k8x" id="v8j-nV-ueD"/>
+                        <outlet property="progressSlider" destination="a3z-0t-QMd" id="6SW-CQ-DzD"/>
+                        <outlet property="timeLabel" destination="d8W-WP-ndI" id="cff-33-Y7a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,8 +78,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button_pause" width="185" height="185"/>
+        <image name="button_play" width="187" height="189"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
